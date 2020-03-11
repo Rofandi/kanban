@@ -1,0 +1,51 @@
+[debug] [2020-03-09T10:08:08.711Z] ----------------------------------------------------------------------
+[debug] [2020-03-09T10:08:08.713Z] Command:       /usr/local/bin/firebase /home/rofandi/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase init
+[debug] [2020-03-09T10:08:08.713Z] CLI Version:   7.14.0
+[debug] [2020-03-09T10:08:08.713Z] Platform:      linux
+[debug] [2020-03-09T10:08:08.713Z] Node Version:  v12.13.1
+[debug] [2020-03-09T10:08:08.713Z] Time:          Mon Mar 09 2020 17:08:08 GMT+0700 (Western Indonesia Time)
+[debug] [2020-03-09T10:08:08.713Z] ----------------------------------------------------------------------
+[debug] [2020-03-09T10:08:08.713Z] 
+[debug] [2020-03-09T10:08:08.716Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-03-09T10:08:08.716Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/rofandi/kanban/Client
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project.
+[debug] [2020-03-09T10:08:46.344Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects  
+
+[debug] [2020-03-09T10:08:47.627Z] <<< HTTP RESPONSE 409
+[debug] [2020-03-09T10:08:47.628Z] <<< HTTP RESPONSE BODY
+[debug] [2020-03-09T10:08:47.632Z] HTTP Error: 409, Requested entity already exists
+[debug] [2020-03-09T10:08:47.636Z] FirebaseError: HTTP Error: 409, Requested entity already exists
+    at module.exports (/home/rofandi/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/responseToError.js:38:12)
+    at Request._callback (/home/rofandi/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/api.js:39:35)
+    at Request.self.callback (/home/rofandi/.cache/firebase/tools/lib/node_modules/request/request.js:185:22)
+    at Request.emit (events.js:210:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at Request.<anonymous> (/home/rofandi/.cache/firebase/tools/lib/node_modules/request/request.js:1154:10)
+    at Request.emit (events.js:210:5)
+    at Request.EventEmitter.emit (domain.js:475:20)
+    at IncomingMessage.<anonymous> (/home/rofandi/.cache/firebase/tools/lib/node_modules/request/request.js:1076:12)
+    at Object.onceWrapper (events.js:299:28)
+    at IncomingMessage.emit (events.js:215:7)
+    at IncomingMessage.EventEmitter.emit (domain.js:475:20)
+    at endReadableNT (_stream_readable.js:1184:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
+[error] 
+[error] Error: Failed to create Google Cloud project. See firebase-debug.log for more info.

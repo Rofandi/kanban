@@ -1,0 +1,59 @@
+body.blue {
+  background: #123456;
+}
+
+.kanban {
+  margin: 8px 0;
+}
+
+.col {
+  padding: 0 4px;
+}
+
+.category {
+  background: #dfdedd;
+  padding: 4px 8px 8px;
+}
+
+.category-name{
+  font-weight: bold;
+  color: #222;
+}
+
+.task {
+  background: #f2f2f2;
+  margin-top: 4px;
+  padding: 4px 4px 0;
+}
+.add-task{
+  width: 100%;
+  font-size: 14px;
+  margin-top: 4px;
+  padding: 4px;
+  background: transparent;
+  border: transparent;
+  outline: transparent;
+}
+.login h3 {
+  margin-bottom: 32px;
+}
+.register h3 {
+  margin-bottom: 32px;
+}
+
+.next-step{
+  margin-top: 8px;
+}
+
+.clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.fa-angle-down {
+  transition: transform 0.2s linear;
+}
+
+.clickable[aria-expanded="true"] .fa-angle-down {
+  transform: rotateX(180deg);
+}
