@@ -11,25 +11,54 @@ const client = new OAuth2Client(process.env.CLIENT_ID);
  *   name: User
  *   description: User management
  */
+/**
+ * @swagger
+ *  components:
+ *    schemas:
+ *      AccessToken:
+ *        type: object
+ *        required:
+ *          - jwt
+ *        properties:
+ *          jwt:
+ *            type: string
+ *            description: JWT token
+ *        example:
+ *          jwt: eyHJSDjkhjkHKASHKJAHSKJsahjSJKHAKJh
+ */
+
 class UserController{
-        /**
+    /**
      * @swagger
      * path:
      *  /users/register:
      *    post:
-     *      summary: Create a new user
+     *      summary: Register new account
      *      tags: [User]
+     *      requestBody:
+     *        required: true
+     *        content:
+     *          application/x-www-form-urlencoded:
+     *            schema:
+     *              type: object
+     *              properties:
+     *                email:
+     *                  type: string
+     *                password:
+     *                  type: string
+     *              required:
+     *                - name
+     *                - email
      *      responses:
      *        "200":
-     *          description: Array of ToDo
+     *          description: Object containing jwt
      *          content:
      *            application/json:
      *              schema:
-     *                type: array
-     *                items:
-     *                  $ref: "#/components/schemas/User"
+     *                $ref: '#/components/schemas/AccessToken'
      *        "500":
      *          description: Internal Server Error
+     *    
      */
     static register(req, res, next){
         const email = req.body.email;
@@ -45,33 +74,49 @@ class UserController{
             .catch(next);
     }
 
-        /**
+    /**
      * @swagger
      * path:
      *  /users/login:
      *    post:
-     *      summary: Get all todos
-     *      tags: [ToDo]
+     *      summary: Login using email/password
+     *      tags: [User]
+     *      requestBody:
+     *        required: true
+     *        content:
+     *          application/x-www-form-urlencoded:
+     *            schema:
+     *              type: object
+     *              properties:
+     *                email:
+     *                  type: string
+     *                password:
+     *                  type: string
+     *              required:
+     *                - name
+     *                - email
      *      responses:
      *        "200":
-     *          description: Array of ToDo
+     *          description: Object containing jwt
      *          content:
      *            application/json:
      *              schema:
-     *                type: array
-     *                items:
-     *                  $ref: "#/components/schemas/ToDo"
+     *                $ref: '#/components/schemas/AccessToken'
      *        "500":
      *          description: Internal Server Error
+     *    
      */
+
     static login(req, res, next){
         const email = req.body.email;
         const password = req.body.password;
+        console.log(email);
         User.findOne({ where: {email}})
         .then(data=>{
             if(data){
                 if(Bcrypt.compare(password, data.password)){
                     let token = jwt.sign({email: data.email});
+                    console.log('adasdaf');
                     res.status(200).json({token})
                 }else{
                     next({

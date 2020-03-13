@@ -2,9 +2,9 @@ module.exports = {
     swaggerDefinition: {
         openapi: "3.0.0",
         info: {
-            title: "Fancy Todo API Documentation",
+            title: "Kanban API Documentation",
             version: "1.0.0",
-            description: "JSON API for Fancy Todo app",
+            description: "JSON API for Kanban app",
             license: {
                 name: "MIT"
             },

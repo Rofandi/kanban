@@ -11,7 +11,7 @@ body.blue {
 }
 
 .category {
-  background: #dfdedd;
+  background: rgba(223, 222, 221, 0.94);
   padding: 4px 8px 8px;
 }
 
@@ -34,11 +34,34 @@ body.blue {
   border: transparent;
   outline: transparent;
 }
+.navbar {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+.editTask{
+  width: 100%;
+  font-size: 14px;
+  margin-top: 4px;
+  padding: 4px;
+  background: transparent;
+  border: transparent;
+  outline: transparent;
+}
+.editTask:focus{
+  background: #31e8df
+}
 .login h3 {
+  color: #fff;
   margin-bottom: 32px;
 }
+.login label {
+  color: #fff;
+}
 .register h3 {
+  color: #fff;
   margin-bottom: 32px;
+}
+.register label {
+  color: #fff;
 }
 
 .next-step{

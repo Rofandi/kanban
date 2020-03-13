@@ -26,6 +26,6 @@ router.get("/docs", swaggerUi.setup(specs, {
     explorer: true
 }));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Example app listening on port ${port}! process id: ${process.pid}`))
 
 module.exports = app
