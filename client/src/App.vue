@@ -142,7 +142,8 @@ export default {
       taskBacklog: "",
       taskProduct: "",
       taskDevelopment: "",
-      taskDone: ""
+      taskDone: "",
+      loginMethod: localStorage.loginMethod
     };
   },
 
@@ -155,6 +156,8 @@ export default {
         })
         .then(response => {
           localStorage.jwt = response.data.token;
+          localStorage.loginMethod = "password";
+          this.loginMethod = "password";
           this.page = "Kanban";
           this.initKanban();
         });
@@ -163,6 +166,7 @@ export default {
       this.page = "Register";
     },
     googleLoginSuccess() {
+      this.loginmethod = "google";
       this.page = "Kanban";
     },
     registerSubmit() {
@@ -173,6 +177,8 @@ export default {
         })
         .then(response => {
           localStorage.jwt = response.data.token;
+          localStorage.loginMethod = "password";
+          this.loginMethod = "password";
           this.page = "Kanban";
           this.initKanban();
         })
@@ -234,7 +240,16 @@ export default {
     },
     logout() {
       delete localStorage.jwt;
+      delete localStorage.loginMethod;
+      this.loginMethod = null;
       this.page = "Login";
+    },
+    logoutGoogle() {
+      auth2.disconnect();
+      delete localStorage.jwt;
+      delete localStorage.loginMethod;
+      this.loginMethod = null;
+      this.page = "Login";idToken
     }
   },
   mounted: function() {

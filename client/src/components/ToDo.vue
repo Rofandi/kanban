@@ -3,6 +3,7 @@
     <div
       class="row mx-0 clickable"
       data-toggle="collapse"
+      v-on:click="toggle"
       v-bind:data-target="'#actions-' + task.id">
       <div class="col">
           <div v-if="editing"><input class="editTask" ref="editFocus" type="text" v-bind:value="task.title" v-on:keydown.enter="saveTask"/></div>
@@ -40,6 +41,9 @@ export default {
     };
   },
   methods: {
+    toggle() {
+      $(".collapse").collapse("hide");
+    },
     axiosChangeCategory(category, id){
       axios.put(`http://localhost:3000/todos/${id}`, {
             title: this.task.title,
