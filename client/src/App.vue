@@ -121,6 +121,8 @@
 import axios from "axios";
 import Stage from "./components/Stage.vue";
 import GoogleLogin from "./components/GoogleLogin.vue";
+import baseUrl from "./baseUrl";
+
 export default {
   components: {
     Stage,
@@ -150,7 +152,7 @@ export default {
   methods: {
     loginSubmit() {
       axios
-        .post("http://localhost:3000/user/login", {
+        .post(`${baseUrl}user/login`, {
           email: this.loginEmail,
           password: this.loginPassword
         })
@@ -171,7 +173,7 @@ export default {
     },
     registerSubmit() {
       axios
-        .post("http://localhost:3000/user/register", {
+        .post(`${baseUrl}user/register`, {
           email: this.registerEmail,
           password: this.registerPassword
         })
@@ -191,7 +193,7 @@ export default {
     },
     initKanban() {
       axios
-        .get("http://localhost:3000/todos", {
+        .get(`${baseUrl}todos`, {
           headers: {
             Authorization: localStorage.jwt
           }
@@ -221,7 +223,7 @@ export default {
         this.taskBacklog = "";
         axios
           .post(
-            "http://localhost:3000/todos",
+            `${baseUrl}todos`,
             {
               title: title,
               category: "backlog"

@@ -32,6 +32,8 @@
 
 <script>
 import axios from "axios";
+import baseUrl from "../baseUrl";
+
 export default {
   name: "ToDo",
   props: ["task","categoryType"],
@@ -45,7 +47,7 @@ export default {
       $(".collapse").collapse("hide");
     },
     axiosChangeCategory(category, id){
-      axios.put(`http://localhost:3000/todos/${id}`, {
+      axios.put(`${baseUrl}todos/${id}`, {
             title: this.task.title,
             category: category
         },{
@@ -82,7 +84,7 @@ export default {
       const title = e.currentTarget.value;
       const category = this.categoryType;
       this.editing=false;
-      axios.put(`http://localhost:3000/todos/${id}`, {
+      axios.put(`${baseUrl}todos/${id}`, {
             title: title,
             category: category
         },{
@@ -97,7 +99,7 @@ export default {
     },
     deleteTask(){
       const id = this.task.id;
-        axios.delete(`http://localhost:3000/todos/${id}`,{
+        axios.delete(`${baseUrl}todos/${id}`,{
             headers: {
                 "Authorization": localStorage.jwt
             }

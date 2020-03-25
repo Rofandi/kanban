@@ -51,6 +51,8 @@
 <script>
 import axios from "axios";
 import ToDo from "./ToDo.vue";
+import baseUrl from "../baseUrl";
+
 export default {
   name: "Stage",
   components: {
@@ -69,7 +71,7 @@ export default {
         this.taskTitle = "";
         axios
           .post(
-            "http://localhost:3000/todos",
+            `${baseUrl}todos`,
             {
               title: title,
               category: this.title.toLowerCase()

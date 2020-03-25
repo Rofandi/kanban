@@ -5,6 +5,8 @@
 </template>
 <script>
 import GoogleSignInButton from 'vue-google-signin-button-directive'
+import baseUrl from "../baseUrl";
+
 export default {
   directives: {
     GoogleSignInButton
@@ -21,7 +23,7 @@ export default {
       if (this.clicked) {
         $.ajax({
             method: "POST",
-            url: `http://localhost:3000/user/googlelogin`,
+            url: `${baseUrl}user/googlelogin`,
             data: {
               token: idToken
             }
